@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras.models import Sequential, Model
-from tensorflow.keras.layers import Dense, InputLayer, Dropout, Conv1D, Conv2D, Flatten, Reshape, MaxPooling1D, MaxPooling2D, AveragePooling2D, BatchNormalization, Permute, ReLU, Softmax, DepthwiseConv2D, SeparableConv2D, Input
+from tensorflow.keras.layers import Dense, InputLayer, Dropout, Conv2D, Flatten, Reshape, MaxPooling2D, AveragePooling2D, BatchNormalization, Permute, ReLU, Softmax, DepthwiseConv2D, SeparableConv2D, Input
 from tensorflow.keras.optimizers.legacy import Adam
 from tensorflow.keras.regularizers import l2
 
@@ -8,8 +8,10 @@ EPOCHS = 200
 LEARNING_RATE = 0.0001
 BATCH_SIZE = args.batch_size or 32
 
-train_dataset=train_dataset.batch(BATCH_SIZE, drop_remainder=False)
-validation_dataset = validation_dataset.batch(BATCH_SIZE, drop_remainder=False)
+# model size info
+# S: 5 64 10 4 2 2 64 3 3 1 1 64 3 3 1 1 64 3 3 1 1 64 3 3 1 1
+# M: 172 10 4 2 1 172 3 3 2 2 172 3 3 1 1 172 3 3 1 1 172 3 3 1 1
+# L: 276 10 4 2 1 276 3 3 2 2 276 3 3 1 1 276 3 3 1 1 276 3 3 1 1 276 3 3 1 1
 
 # model architecture
 channels = 1
